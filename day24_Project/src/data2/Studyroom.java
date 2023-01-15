@@ -27,9 +27,9 @@ public class Studyroom {
 	}
 	//개설
 	public void createroom(String nick) {
-		CallableStatement cstmt1=null;	//프로시져 사용해서 방 개설
-		PreparedStatement pstmt1=null;	//닉네임으로 스터디룸 정보조회
-		PreparedStatement pstmt2=null;	//mems테이블에 rnum 갱신
+		CallableStatement cstmt1 = null;	//프로시져 사용해서 방 개설
+		PreparedStatement pstmt1 = null;	//닉네임으로 스터디룸 정보조회
+		PreparedStatement pstmt2 = null;	//mems테이블에 rnum 갱신
 		ResultSet rs1=null;
 		String sql1="{call createsr(sr_seq.nextval,?,?)}";	//studyroom 테이블에 방개설 프로시저 
 		String sql2="select * from studyroom where admin=?";//파라미터 닉네임으로 스터디룸 조회
@@ -66,10 +66,10 @@ public class Studyroom {
 			}
 		}finally {
 			try {
-				if(pstmt2!=null) pstmt2.close();
-				if(rs1!=null) rs1.close();				
-				if(pstmt1!=null) pstmt1.close();
-				if(cstmt1!=null) cstmt1.close();
+				if(pstmt2 != null) pstmt2.close();
+				if(rs1 != null) rs1.close();				
+				if(pstmt1 != null) pstmt1.close();
+				if(cstmt1 != null) cstmt1.close();
 			}catch(SQLException se) {
 				System.out.println(se.getMessage());
 			}
@@ -77,7 +77,7 @@ public class Studyroom {
 	}
 	//가입
 	public void addroom(String nick) {
-		PreparedStatement pstmt1=null;	//방번호 조회
+		PreparedStatement pstmt1 = null;	//방번호 조회
 		PreparedStatement pstmt2=null; //파라미터 nick으로 조회하여 rnum갱신
 		ResultSet rs1=null;
 		String sql1="select * from studyroom where rnum=?";	//방번호 조회
